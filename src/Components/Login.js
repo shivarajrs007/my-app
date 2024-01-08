@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const Login = () => 
@@ -29,16 +30,16 @@ const Login = () =>
     return (
         <div>
             <form onSubmit={handleEmail}>
-                <div class="form-group">
-                    <label for="InputEmail">Email address</label>
-                    <input type="email"  class="form-control" id="email" value={emailValue} onChange={(e) => { setEmail(e.target.value) }} placeholder="Enter email"/>
-                    <small id="emailHelp" class="form-text text-muted">{message}</small>
+                <div className="form-group">
+                    <label >Email address</label>
+                    <input type="email"  className="form-control" id="email" value={emailValue} onChange={(e) => { setEmail(e.target.value) }} placeholder="Enter email"/>
+                    <small id="emailHelp" className="form-text text-muted">{message}</small>
                 </div>
-                <div class="form-group">
-                    <label for="InputPassword">Password</label>
-                    <input type="password" value={passwordValue} onChange={(e) => { setPassword(e.target.value) }} class="form-control" id="password1" placeholder="Password"/>
+                <div className="form-group">
+                    <label >Password</label>
+                    <input type="password" value={passwordValue} onChange={(e) => { setPassword(e.target.value) }} className="form-control" id="password1" placeholder="Password"/>
                 </div>
-                <button  class="btn btn-primary">Submit</button>
+                <button className="btn btn-primary">Submit</button>
             </form>
         </div>
     );
