@@ -1,5 +1,6 @@
-
+import Headers from './../Components/Headers';
 import React from 'react';
+
 import './../App.css'
 const Main = () => {
     const reports=[
@@ -17,15 +18,18 @@ const Main = () => {
         const cartItm = reports.filter(reports => reports.id === Id);
         cartItems.push(cartItm)
         console.log(cartItems);
+        localStorage.setItem('items', JSON.stringify(cartItems))
     }
     return (
+        <>
+        <Headers></Headers>
         <div className="mainContainer" style={{display: "flex",flexWrap: "wrap"}}>
             {reports.map(report => (
                 // <div className="child">
                     <div className="card" key={report.id}  onClick={() => addCart(report.id)}>
                         <img src={process.env.PUBLIC_URL + report.img} alt="" style={{width:"100%"}} />
                         <div className="container">
-                            <p className="card-text"><h4>{report.name}</h4><br></br><b>Price : </b>{report.price}</p>
+                            <div className="card-text"><h4>{report.name}</h4><br></br><b>Price : </b>{report.price}</div>
                         </div>
                     </div>
                    
@@ -34,7 +38,7 @@ const Main = () => {
 
             ))}
         </div>
-    );
+        </>);
 }
 
 export default Main;
