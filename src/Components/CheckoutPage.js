@@ -1,9 +1,11 @@
 import React from "react";
 import './CheckoutPage.css';
+import Headers from './../Components/Headers';
 const CheckoutPage = () => {
     const items = [{ id: 1, itemName: "item1", price: 100 }, { id: 2, itemName: "item2", price: 300 }, { id: 3, itemName: "item3", price: 400 }, { id: 4, itemName: "item4", price: 500 }];
     const Total = items.reduce((total, item) => total + item.price, 0);
-    return (
+    return (<>
+        <Headers></Headers>
         <div className='app-background'>
             <div className='main-container'>
                 <div className='item-list'>
@@ -21,7 +23,7 @@ const CheckoutPage = () => {
                 <div className='total'>Total: {Total}</div>
             </div>
         </div>
-    );
+        </>);
 }
 
 export default CheckoutPage;

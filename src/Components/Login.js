@@ -1,4 +1,5 @@
 import React from "react";
+import Headers from './../Components/Headers';
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -28,7 +29,7 @@ const Login = () =>
         
     }
     return (
-        <div>
+        <div><Headers></Headers>
             <form onSubmit={handleEmail}>
                 <div className="form-group">
                     <label >Email address</label>
