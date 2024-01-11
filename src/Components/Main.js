@@ -17,6 +17,9 @@ const Main = () => {
     const cartItems =[]
     const addCart = (Id) =>{
         const cartItm = reports.filter(reports => reports.id === Id);
+        const report_item=cartItm[0].name
+
+        alert(`${report_item} item added to cart`)
         cartItems.push(...cartItm)
         console.log(cartItems);
         localStorage.setItem('items', JSON.stringify(cartItems))
@@ -27,9 +30,9 @@ const Main = () => {
         <div className="mainContainer" style={{display: "flex",flexWrap: "wrap"}}>
             {reports.map(report => (
                 // <div className="child">
-                    <div className="card" key={report.id}  onClick={() => addCart(report.id)}>
+                    <div className="repoert-card" key={report.id}  onClick={() => addCart(report.id)}>
                         <img src={process.env.PUBLIC_URL + report.img} alt="" style={{width:"100%"}} />
-                        <div className="container">
+                        <div className="repoert-container">
                             <div className="card-text"><h4>{report.name}</h4><br></br><b>Price : </b>{report.price}</div>
                         </div>
                     </div>

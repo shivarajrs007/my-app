@@ -1,13 +1,14 @@
 import React from "react";
-import Headers from './../Components/Headers';
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+
+import './login.css'
 
 const Login = () => 
 {
     const navigate = useNavigate();
     const [emailValue, setEmail] = useState('');
-    const [passwordValue,setPassword]=useState('');
+    const [passwordValue, setPassword] = useState('');
     const [message, setMessage] = useState("");
     const users = [{ email: "admin@admin.com", password: "admin@123" }];
     function handleEmail(event) 
@@ -17,33 +18,45 @@ const Login = () =>
         if (account && account.password === passwordValue) {
             navigate("/MainPage");
         }
-        else{
+        else {
             setMessage("Wrong email or password");
         }
         let emailRegex = /[a-z0-9]+@[a-z]+\.[a-z]{2,3}/;
         if (!emailRegex.test(emailValue)) {
-        setMessage("Error! you have entered invalid email.");
+            setMessage("Error! you have entered invalid email.");
         } else {
-        setMessage("");
+            setMessage("");
         }
-        
     }
-    return (
-        <div><Headers></Headers>
-            <form onSubmit={handleEmail}>
-                <div className="form-group">
-                    <label >Email address</label>
-                    <input type="email"  className="form-control" id="email" value={emailValue} onChange={(e) => { setEmail(e.target.value) }} placeholder="Enter email"/>
-                    <small id="emailHelp" className="form-text text-muted">{message}</small>
+        return (
+            <div className="container ">
+                <div className="card d-flex align-items-center justify-content-center">
+                    <div className="form">
+                        <div className="left-side">
+                            <img src="https://imgur.com/XaTWxJX.jpg" />
+                        </div>
+                        <div className="right-side">
+                            <div className="hello">
+                                <h2>Login</h2>
+                            </div>
+                            <form onSubmit={handleEmail}>
+                                <div className="input_text">
+                                    <input className={`  ? "warning" : "" }`} id="email" value={emailValue} onChange={(e) => { setEmail(e.target.value) }} type="text" placeholder="Enter Email" name="email" />
+                                    <p>{message}</p>
+                                </div>
+                                <div className="input_text">
+                                    {/* <input className={`  ? "warning" : "" }`} value={passwordValue} onChange={(e) => { setPassword(e.target.value) }} placeholder="Enter Password" name="password" />
+                                     */} <input className={`  ? "warning" : "" }`} id="email"value={passwordValue} onChange={(e) => { setPassword(e.target.value) }} type="text" placeholder="Enter Password" name="password" />
+                                </div>
+                                <div className="btn">
+                                    <button className="btn btn-primary">Submit</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
                 </div>
-                <div className="form-group">
-                    <label >Password</label>
-                    <input type="password" value={passwordValue} onChange={(e) => { setPassword(e.target.value) }} className="form-control" id="password1" placeholder="Password"/>
-                </div>
-                <button className="btn btn-primary">Submit</button>
-            </form>
-        </div>
-    );
+            </div>
+        );
 }
 
 export default Login;
