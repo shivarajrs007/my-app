@@ -1,5 +1,6 @@
 import Headers from './../Components/Headers';
 import React from 'react';
+import {Link} from 'react-router-dom';
 
 import './../App.css'
 const Main = () => {
@@ -38,6 +39,9 @@ const Main = () => {
 
             ))}
         </div>
+        <Link to="/CheckoutPage">
+        <button>Click</button>
+      </Link>
         </>);
 }
 

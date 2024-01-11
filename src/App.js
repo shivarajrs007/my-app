@@ -5,6 +5,8 @@ import Main from './Components/Main';
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import CheckoutPage from './Components/CheckoutPage';
 function App() {
+  
+
   return (
     <BrowserRouter>
       <Routes>
