@@ -17,7 +17,7 @@ const Main = () => {
     const cartItems =[]
     const addCart = (Id) =>{
         const cartItm = reports.filter(reports => reports.id === Id);
-        cartItems.push(cartItm)
+        cartItems.push(...cartItm)
         console.log(cartItems);
         localStorage.setItem('items', JSON.stringify(cartItems))
     }
